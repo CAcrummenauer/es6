@@ -70,3 +70,24 @@ document.getElementById('newTodo').onclick = function () {
 };
 
 minhaLista.showUser();
+
+var TestStatic =
+/*#__PURE__*/
+function () {
+  function TestStatic() {
+    _classCallCheck(this, TestStatic);
+
+    this.data = [];
+  }
+
+  _createClass(TestStatic, null, [{
+    key: "add",
+    value: function add() {
+      this.data.push('Tentativa de entrada...');
+    }
+  }]);
+
+  return TestStatic;
+}();
+
+TestStatic.add();

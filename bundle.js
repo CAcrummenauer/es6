@@ -18,6 +18,9 @@ function () {
   _createClass(Test, [{
     key: "method",
     value: function method() {}
+  }, {
+    key: "other",
+    value: function other() {}
   }]);
 
   return Test;

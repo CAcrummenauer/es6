@@ -1,10 +1,30 @@
 "use strict";
 
-var soma = function soma() {
-  var a = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 3;
-  var b = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 6;
-  return a + b;
+var user = {
+  name: 'Cezar',
+  age: 23,
+  address: {
+    city: 'Ibarama',
+    uf: 'RS'
+  }
+};
+console.log(user); // Desestruturação
+
+var name = user.name,
+    age = user.age,
+    uf = user.address.uf;
+console.log(name, age, uf);
+
+function showNameA(_ref) {
+  var name = _ref.name;
+  console.log("Nome do usu\xE1rio desestruturado em par\xE3metro de fun\xE7\xE3o: ".concat(name, "."));
+}
+
+showNameA(user);
+
+var showNameB = function showNameB(_ref2) {
+  var name = _ref2.name;
+  return console.log("Nome do usu\xE1rio desestruturado em par\xE3metro de fun\xE7\xE3o: ".concat(name, "."));
 };
 
-console.log(soma(1));
-console.log(soma());
+showNameB(user);

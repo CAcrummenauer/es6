@@ -54,3 +54,43 @@ do arquivo package.json é trocado por:
 "scripts": {
     "dev": "webpack --mode=development -w"
 }
+
+----
+
+yarn add webpack-dev-server
+webpack.config.js;
+module.exports = {
+    entry: './src/main.js',
+    output: {
+        path: __dirname + '/public',
+        filename: 'bundle.js'
+    },
+    devServer: {
+        contentBase: __dirname + '/public'
+    },
+    module: {
+        rules: [
+            {
+                test: /\.js$/,
+                exclude: /node_modules/,
+                use: {
+                    loader: 'babel-loader'
+                }
+            }
+        ]
+    }
+};
+
+package.json;
+...
+"scripts": {
+    "dev": "webpack-dev-server --mode=development",
+    "build": "webpack --mode=production"
+}
+...
+
+Reestruturação de pastas;
+public
+    index.html
+src
+    main.js

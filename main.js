@@ -1,14 +1,7 @@
-function test(x) {
-    let y = 2; // y é uma variável de escopo
+const array = [1, 2, 3, 4, 5, 6, 7];
 
-    if (x > 5) {
-        let y = 4; // Permite reutilizar o nome de y
-        console.log(x, y);
-    }
+const newArray = array.map(function(item) {
+    return item * 2;
+});
 
-    console.log(y);
-}
-
-// console.log(y); // Não está no escopo de y
-
-test(10);
+console.log(newArray);

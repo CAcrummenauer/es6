@@ -5,3 +5,9 @@ const newArray = array.map(function(item, index) {
 });
 
 console.log(newArray);
+
+const sum = array.reduce(function(total, next) {
+    return total + next;
+});
+
+console.log(sum);

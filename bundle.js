@@ -1,60 +1,23 @@
 "use strict";
 
-function _objectWithoutProperties(source, excluded) { if (source == null) return {}; var target = _objectWithoutPropertiesLoose(source, excluded); var key, i; if (Object.getOwnPropertySymbols) { var sourceSymbolKeys = Object.getOwnPropertySymbols(source); for (i = 0; i < sourceSymbolKeys.length; i++) { key = sourceSymbolKeys[i]; if (excluded.indexOf(key) >= 0) continue; if (!Object.prototype.propertyIsEnumerable.call(source, key)) continue; target[key] = source[key]; } } return target; }
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; var ownKeys = Object.keys(source); if (typeof Object.getOwnPropertySymbols === 'function') { ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) { return Object.getOwnPropertyDescriptor(source, sym).enumerable; })); } ownKeys.forEach(function (key) { _defineProperty(target, key, source[key]); }); } return target; }
 
-function _objectWithoutPropertiesLoose(source, excluded) { if (source == null) return {}; var target = {}; var sourceKeys = Object.keys(source); var key, i; for (i = 0; i < sourceKeys.length; i++) { key = sourceKeys[i]; if (excluded.indexOf(key) >= 0) continue; target[key] = source[key]; } return target; }
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
-// Rest operator
-var user = {
+// Spread
+var array1 = [1, 2, 3];
+var array2 = [4, 5, 6];
+var array3 = [].concat(array1, array2);
+console.log(array3);
+var user1 = {
   name: 'Diego',
-  age: 23,
-  empresa: 'Rocketseat'
+  idade: 23,
+  empresa: 'RocketSeat'
 };
+console.log(user1);
 
-var name = user.name,
-    rest = _objectWithoutProperties(user, ["name"]);
+var user2 = _objectSpread({}, user1, {
+  name: 'Gabriel'
+});
 
-console.log(name);
-console.log(rest);
-var array = [1, 2, 3, 4];
-var a = array[0],
-    b = array[1],
-    c = array.slice(2);
-console.log(a);
-console.log(b);
-console.log(c);
-console.log('Funções: ');
-
-function somaA() {
-  for (var _len = arguments.length, params = new Array(_len), _key = 0; _key < _len; _key++) {
-    params[_key] = arguments[_key];
-  }
-
-  return params.reduce(function (total, next) {
-    return total + next;
-  });
-}
-
-console.log('somaA: ' + somaA(1, 2, 3, 4, 5));
-
-function somaB(a, b) {
-  for (var _len2 = arguments.length, params = new Array(_len2 > 2 ? _len2 - 2 : 0), _key2 = 2; _key2 < _len2; _key2++) {
-    params[_key2 - 2] = arguments[_key2];
-  }
-
-  return params;
-}
-
-console.log(somaB(1, 2, 3, 4, 5));
-
-var somaC = function somaC() {
-  for (var _len3 = arguments.length, params = new Array(_len3), _key3 = 0; _key3 < _len3; _key3++) {
-    params[_key3] = arguments[_key3];
-  }
-
-  return params.reduce(function (total, next) {
-    return total + next;
-  });
-};
-
-console.log('somaC: ' + somaA(1, 2, 3, 4, 5));
+console.log(user2);

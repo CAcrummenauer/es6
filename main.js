@@ -1,33 +1,14 @@
-// Rest operator
-const user = {
+// Spread
+const array1 = [1, 2, 3];
+const array2 = [4, 5, 6];
+const array3 = [...array1, ...array2];
+console.log(array3);
+
+const user1 = {
     name: 'Diego',
-    age: 23,
-    empresa: 'Rocketseat'
+    idade: 23,
+    empresa: 'RocketSeat'
 };
-const {name, ...rest} = user;
-console.log(name);
-console.log(rest);
-
-const array = [1, 2, 3, 4];
-const [a, b, ...c] = array;
-console.log(a);
-console.log(b);
-console.log(c);
-
-
-
-console.log('Funções: ');
-function somaA(...params) {
-    return params.reduce((total, next) => {
-        return total + next
-    });
-}
-console.log('somaA: ' + somaA(1, 2, 3, 4, 5));
-
-function somaB(a, b, ...params) {
-    return params;
-}
-console.log(somaB(1, 2, 3, 4, 5));
-
-const somaC = (...params) => params.reduce((total, next) => total + next);
-console.log('somaC: ' + somaA(1, 2, 3, 4, 5));
+console.log(user1);
+const user2 = {...user1, name: 'Gabriel'};
+console.log(user2);

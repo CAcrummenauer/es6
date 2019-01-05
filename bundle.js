@@ -90,11 +90,11 @@
 /*!**********************!*\
   !*** ./functions.js ***!
   \**********************/
-/*! exports provided: soma */
+/*! exports provided: soma, sub */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"soma\", function() { return soma; });\nfunction soma(a, b) {\n  return a + b;\n}\n\n//# sourceURL=webpack:///./functions.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"soma\", function() { return soma; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"sub\", function() { return sub; });\nfunction soma(a, b) {\n  return a + b;\n}\nfunction sub(a, b) {\n  return a - b;\n}\n\n//# sourceURL=webpack:///./functions.js?");
 
 /***/ }),
 
@@ -106,7 +106,31 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) *
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _functions__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./functions */ \"./functions.js\");\n\nconsole.log(Object(_functions__WEBPACK_IMPORTED_MODULE_0__[\"soma\"])(1, 2));\n\n//# sourceURL=webpack:///./main.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _functions__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./functions */ \"./functions.js\");\n/* harmony import */ var _sum__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./sum */ \"./sum.js\");\n/* harmony import */ var _messages__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./messages */ \"./messages.js\");\n\n\n\nconsole.log(Object(_functions__WEBPACK_IMPORTED_MODULE_0__[\"soma\"])(1, 2));\nconsole.log(Object(_functions__WEBPACK_IMPORTED_MODULE_0__[\"sub\"])(1, 2));\nconsole.log(Object(_sum__WEBPACK_IMPORTED_MODULE_1__[\"default\"])(10, 10));\nconsole.log(Object(_sum__WEBPACK_IMPORTED_MODULE_1__[\"mult\"])(10, 10));\nconsole.log(_messages__WEBPACK_IMPORTED_MODULE_2__[\"firstName\"]());\nconsole.log(_messages__WEBPACK_IMPORTED_MODULE_2__[\"lastName\"]());\n\n//# sourceURL=webpack:///./main.js?");
+
+/***/ }),
+
+/***/ "./messages.js":
+/*!*********************!*\
+  !*** ./messages.js ***!
+  \*********************/
+/*! exports provided: firstName, lastName */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"firstName\", function() { return firstName; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"lastName\", function() { return lastName; });\nfunction firstName() {\n  return 'Cezar';\n}\nfunction lastName() {\n  return 'Crummenauer';\n}\n\n//# sourceURL=webpack:///./messages.js?");
+
+/***/ }),
+
+/***/ "./sum.js":
+/*!****************!*\
+  !*** ./sum.js ***!
+  \****************/
+/*! exports provided: default, mult */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"default\", function() { return qLokuraOme; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"mult\", function() { return mult; });\nfunction qLokuraOme(a, b) {\n  return a + b;\n}\nfunction mult(a, b) {\n  return a * b;\n}\n\n//# sourceURL=webpack:///./sum.js?");
 
 /***/ })
 

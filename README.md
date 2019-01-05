@@ -23,6 +23,7 @@ após o último comando, .babelrc deve conter:
     "plugins": ["@babel/plugin-proposal-object-rest-spread"]
 }
 
+Em package.json, mudar "dependencies" por "devDependencies"
 yarn add webpack webpack-cli -D
 yarn add babel-loader -D
 após os últimos comandos, webpack.config.js deve conter:

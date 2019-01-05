@@ -1,6 +1,8 @@
 # es6
 Entendendo novos recursos do e para o JavaScript
 
+yarn é um gerenciador de dependências...
+babel faz a traspilação de códigos JavaScrip para torna-los compatíveis com versões anteriores...
 yarn add @babel/cli
 yarn add @babel/preset-env
 yarn add @babel/core

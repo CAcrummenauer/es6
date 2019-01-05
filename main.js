@@ -1,23 +1,33 @@
+// Rest operator
 const user = {
-    name: 'Cezar',
+    name: 'Diego',
     age: 23,
-    address: {
-        city: 'Ibarama',
-        uf: 'RS'
-    }
+    empresa: 'Rocketseat'
 };
+const {name, ...rest} = user;
+console.log(name);
+console.log(rest);
 
-console.log(user);
+const array = [1, 2, 3, 4];
+const [a, b, ...c] = array;
+console.log(a);
+console.log(b);
+console.log(c);
 
-// Desestruturação
-const {name, age, address: {uf}} = user;
 
-console.log(name, age, uf);
 
-function showNameA({name}) {
-    console.log(`Nome do usuário desestruturado em parãmetro de função: ${name}.`);
+console.log('Funções: ');
+function somaA(...params) {
+    return params.reduce((total, next) => {
+        return total + next
+    });
 }
-showNameA(user);
+console.log('somaA: ' + somaA(1, 2, 3, 4, 5));
 
-const showNameB = ({name}) => console.log(`Nome do usuário desestruturado em parãmetro de função: ${name}.`);
-showNameB(user);
+function somaB(a, b, ...params) {
+    return params;
+}
+console.log(somaB(1, 2, 3, 4, 5));
+
+const somaC = (...params) => params.reduce((total, next) => total + next);
+console.log('somaC: ' + somaA(1, 2, 3, 4, 5));

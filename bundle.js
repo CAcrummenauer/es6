@@ -1,7 +1,17 @@
 "use strict";
 
-// Template literals
-var name = 'Cezar';
+// Object short syntax
+var nome = 'Cezar';
 var age = 23;
-console.log('Meu nome é ' + name + ' e tenho idade: ' + age + ' anos.');
-console.log("Meu nome \xE9 ".concat(name, " e tenho idade: ").concat(age, " anos."));
+var user1 = {
+  name: name,
+  age: age,
+  enterprise: 'FeedAgro'
+};
+var user2 = {
+  name: name,
+  age: age,
+  enterprise: 'FeedAgro'
+};
+console.log(user1);
+console.log(user2);

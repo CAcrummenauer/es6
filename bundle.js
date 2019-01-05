@@ -1,6 +1,6 @@
 "use strict";
 
-var array = [1, 2, 3, 4, 5, 6, 7];
+var array = [1, 2, 3, 4, 5, 6, 7, 4];
 var newArray = array.map(function (item, index) {
   return item + index;
 });
@@ -14,3 +14,7 @@ var filter = array.filter(function (item) {
 });
 console.log('filter: ' + filter);
 console.log(filter[1]);
+var find = array.find(function (item) {
+  return item === 100;
+});
+console.log('find: ' + find);

@@ -1,4 +1,4 @@
-const array = [1, 2, 3, 4, 5, 6, 7];
+const array = [1, 2, 3, 4, 5, 6, 7, 4];
 
 const newArray = array.map(function(item, index) {
     return item + index;
@@ -18,3 +18,9 @@ const filter = array.filter(function(item) {
 
 console.log('filter: ' + filter);
 console.log(filter[1]);
+
+const find = array.find(function(item) {
+    return item === 100;
+});
+
+console.log('find: ' + find);

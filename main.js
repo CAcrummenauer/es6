@@ -11,3 +11,10 @@ const sum = array.reduce(function(total, next) {
 });
 
 console.log(sum);
+
+const filter = array.filter(function(item) {
+    return item % 2 === 0;
+});
+
+console.log('filter: ' + filter);
+console.log(filter[1]);

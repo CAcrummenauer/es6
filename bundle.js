@@ -1,41 +1,10 @@
 "use strict";
 
-function testA() {
-  return 'TestA';
-}
-
-var testB = function testB() {
-  return 'TestB';
+var soma = function soma() {
+  var a = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 3;
+  var b = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 6;
+  return a + b;
 };
 
-var testC = function testC() {
-  return 'TestC';
-};
-
-var testD = function testD() {
-  name: 'San';
-}; // Não funciona...
-
-
-var testE = function testE() {
-  return {
-    name: 'San',
-    age: 18
-  };
-}; // Precisa ser assim...
-// ou assim: 
-
-
-var testF = function testF() {
-  return {
-    name: 'Lara',
-    age: 19
-  };
-};
-
-console.log(testA());
-console.log(testB());
-console.log(testC());
-console.log(testD());
-console.log(testE());
-console.log(testF());
+console.log(soma(1));
+console.log(soma());

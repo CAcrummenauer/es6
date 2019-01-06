@@ -1,7 +1,9 @@
+import api from './api'
 class App {
     constructor() {
         this.repositories = [];
         this.formEl = document.getElementById('repo-form');
+        this.inputEl = document.getElementById('repository');
         this.listEl = document.getElementById('repo-list');
         this.registerHandlers();
     }
@@ -10,15 +12,29 @@ class App {
         this.formEl.onsubmit = event => this.addRepository(event);
     }
 
-    addRepository(event) {
+    async addRepository(event) {
         event.preventDefault();
-        this.repositories.push({
-            name: 'Rocketseat',
-            description: 'Tire a sua ideia do papel e dê vida à sua startup.',
-            avatarUrl: 'https://avatars0.githubusercontent.com/u/28929274?v=4',
-            htmlUrl: 'https://github.com/Rocketseat'
-        });
-        this.render();
+        const repoInput = this.inputEl.value;
+        if (repoInput.length === 0) {
+            console.log('Nada digitado');
+            return;
+        }
+        try {
+            const response = await api.get(`https://api.github.com/users/${repoInput}`);
+            console.log(response);
+
+            const {name, bio, html_url, owner: avatar_url} = response.data;
+            this.repositories.push({
+                name,
+                description: bio,
+                avatarUrl: avatar_url,
+                htmlUrl: html_url
+            });
+            this.render();
+            this.inputEl.value = '';
+        } catch (err) {
+            console.warn('Erro ao consumir API: ' + err);
+        }
     }
 
     render() {
@@ -26,7 +42,7 @@ class App {
         this.repositories.forEach(repo => {
             let imgEl = document.createElement('img');
             imgEl.setAttribute('src', repo.avatarUrl);
-            
+
             let titleEl = document.createElement('strong');
             titleEl.appendChild(document.createTextNode(repo.name));
 
@@ -35,6 +51,7 @@ class App {
 
             let linkEl = document.createElement('a');
             linkEl.setAttribute('target', '_blank');
+            linkEl.setAttribute('href', repo.htmlUrl);
             linkEl.appendChild(document.createTextNode('Acessar'));
 
             let listItemEl = document.createElement('li');

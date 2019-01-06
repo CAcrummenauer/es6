@@ -27,7 +27,6 @@ class App {
             this.repositories.push({
                 name,
                 description: bio,
-                avatarUrl: avatar_url,
                 htmlUrl: html_url
             });
             this.render();
@@ -40,8 +39,8 @@ class App {
     render() {
         this.listEl.innerHTML = '';
         this.repositories.forEach(repo => {
-            let imgEl = document.createElement('img');
-            imgEl.setAttribute('src', repo.avatarUrl);
+            /*let imgEl = document.createElement('img');
+            imgEl.setAttribute('src', repo.avatarUrl);*/
 
             let titleEl = document.createElement('strong');
             titleEl.appendChild(document.createTextNode(repo.name));
@@ -55,7 +54,7 @@ class App {
             linkEl.appendChild(document.createTextNode('Acessar'));
 
             let listItemEl = document.createElement('li');
-            listItemEl.appendChild(imgEl);
+            //listItemEl.appendChild(imgEl);
             listItemEl.appendChild(titleEl);
             listItemEl.appendChild(descriptionEl);
             listItemEl.appendChild(linkEl);

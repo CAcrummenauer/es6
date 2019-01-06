@@ -94,3 +94,36 @@ public
     index.html
 src
     main.js
+
+yarn add @babel/plugin-transform-async-to-generator -D
+yarn add @babel/polyfill -D
+.babelrc deve conter:
+{
+    "presets": ["@babel/preset-env"],
+    "plugins": [
+        "@babel/plugin-proposal-object-rest-spread",
+        "@babel/plugin-transform-async-to-generator"        
+    ]
+}
+webpack.config.js deve conter:
+module.exports = {
+    entry: ['@babel/polyfill', './src/main.js'],
+    output: {
+        path: __dirname + '/public',
+        filename: 'bundle.js'
+    },
+    devServer: {
+        contentBase: __dirname + '/public'
+    },
+    module: {
+        rules: [
+            {
+                test: /\.js$/,
+                exclude: /node_modules/,
+                use: {
+                    loader: 'babel-loader'
+                }
+            }
+        ]
+    }
+};

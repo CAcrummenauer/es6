@@ -12,6 +12,17 @@ class App {
         this.formEl.onsubmit = event => this.addRepository(event);
     }
 
+    setLoading(loading = true) {
+        if (loading == true) {
+            let loadingEl = document.createElement('span');
+            loadingEl.appendChild(document.createTextNode('Carregando...'));
+            loadingEl.setAttribute('name', 'loading');
+            this.formEl.appendChild(loadingEl);
+        } else {
+            document.querySelector('span[name=loading]').remove();
+        }
+    }
+
     async addRepository(event) {
         event.preventDefault();
         const repoInput = this.inputEl.value;
@@ -19,6 +30,7 @@ class App {
             console.log('Nada digitado');
             return;
         }
+        this.setLoading();
         try {
             const response = await api.get(`https://api.github.com/users/${repoInput}`);
             console.log(response);
@@ -33,7 +45,9 @@ class App {
             this.inputEl.value = '';
         } catch (err) {
             console.warn('Erro ao consumir API: ' + err);
+            alert('O usuário não existe...');
         }
+        this.setLoading(false);
     }
 
     render() {
